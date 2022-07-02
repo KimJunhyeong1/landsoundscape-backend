@@ -1,7 +1,11 @@
 const { ApolloServer } = require("apollo-server");
-const typeDefs = require("./graphql/schema");
+const { typeDefs, resolvers } = require("./graphql");
 
-const server = new ApolloServer({ typeDefs, mocks: true });
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  mocks: true,
+});
 
 const startServer = async () => {
   await server.listen();
