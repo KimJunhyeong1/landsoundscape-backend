@@ -1,5 +1,9 @@
+const { Photo } = require("./Photo");
+
 const resolver = {
   Query: {
-    hello: () => "world",
+    ...Photo.resolvers.queries,
   },
 };
+
+module.exports = resolver;

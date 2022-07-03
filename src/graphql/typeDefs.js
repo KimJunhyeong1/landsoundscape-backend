@@ -1,7 +1,11 @@
 const { gql } = require("apollo-server");
+const { Photo } = require("./Photo");
+
 const typeDefs = gql`
+  ${Photo.types}
+
   type Query {
-    hello: String
+    ${Photo.queries}
   }
 `;
 

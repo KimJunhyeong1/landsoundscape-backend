@@ -1,18 +1,27 @@
 const { ApolloServer } = require("apollo-server");
-const { typeDefs, resolvers } = require("./graphql");
+const { default: mongoose } = require("mongoose");
+const { typeDefs, resolvers, dataSources } = require("./graphql");
+const config = require("./config");
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  mocks: true,
+  dataSources,
 });
 
 const startServer = async () => {
-  await server.listen();
+  try {
+    await mongoose.connect(config.DATABASE_URL);
+  } catch (error) {
+    console.log(error);
+  }
+
+  console.log(`🎉 connected to database successfully`);
+
+  const { url } = await server.listen();
 
   console.log(`
-  🚀  Server is running!
-  🔉  Listening on port 4000
+  🚀  Server is running at ${url}
   📭  Query at https://studio.apollographql.com/dev`);
 };
 
