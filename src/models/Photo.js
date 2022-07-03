@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const photoSchema = new mongoose.Schema({
+const photoSchema = new Schema({
   imageUrl: {
     type: String,
     unique: true,
@@ -8,7 +9,6 @@ const photoSchema = new mongoose.Schema({
   },
   soundUrl: {
     type: String,
-    unique: true,
     required: true,
   },
   tags: {
