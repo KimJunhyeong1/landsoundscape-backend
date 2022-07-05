@@ -9,11 +9,15 @@
     "dev": "nodemon ./src/index.js"
   },
   "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.0",
+    "@tensorflow/tfjs-node": "^3.18.0",
     "apollo-datasource-mongodb": "^0.5.4",
     "apollo-server": "^3.9.0",
     "dotenv": "^16.0.1",
     "graphql": "^16.5.0",
-    "mongoose": "^6.4.2"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.2",
+    "tfjs-npy-node": "^0.4.1"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
