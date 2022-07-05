@@ -1,12 +1,14 @@
 const { ApolloServer } = require("apollo-server");
 const { default: mongoose } = require("mongoose");
-const { typeDefs, resolvers, dataSources } = require("./graphql");
+const { typeDefs, resolvers, dataSources, context } = require("./graphql");
 const config = require("./config");
+const loadModel = require("./util");
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
+  context,
 });
 
 const startServer = async () => {
