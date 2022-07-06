@@ -1,17 +1,25 @@
-const { ApolloServer } = require("apollo-server");
+const { ApolloServer } = require("apollo-server-express");
+const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
+const GraphQLUpload = require("graphql-upload/GraphQLUpload.js");
+const graphqlUploadExpress = require("graphql-upload/graphqlUploadExpress.js");
 const { default: mongoose } = require("mongoose");
 const { typeDefs, resolvers, dataSources, context } = require("./graphql");
 const config = require("./config");
-const loadModel = require("./util");
+const express = require("express");
+const http = require("http");
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  dataSources,
-  context,
-});
+const startApolloServer = async () => {
+  const app = express();
+  const httpServer = http.createServer(app);
 
-const startServer = async () => {
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    dataSources,
+    context,
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  });
+
   try {
     await mongoose.connect(config.DATABASE_URL);
   } catch (error) {
@@ -20,11 +28,17 @@ const startServer = async () => {
 
   console.log(`🎉 connected to database successfully`);
 
-  const { url } = await server.listen();
+  await server.start();
 
-  console.log(`
-  🚀  Server is running at ${url}
-  📭  Query at https://studio.apollographql.com/dev`);
+  app.use(graphqlUploadExpress());
+
+  server.applyMiddleware({
+    app,
+    path: "/",
+  });
+
+  await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve));
+  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
 };
 
-startServer();
+startApolloServer();
