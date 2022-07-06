@@ -1,19 +1,20 @@
-const { gql } = require("apollo-server");
+const { gql } = require("apollo-server-express");
 
 const { Photo } = require("./Photo");
 const { User } = require("./User");
 
 const typeDefs = gql`
-  ${Photo.types}
   ${User.types}
+  ${Photo.types}
 
   type Query {
-    ${Photo.queries}
     ${User.queries}
+    ${Photo.queries}
   }
 
   type Mutation {
     ${User.mutations}
+    ${Photo.mutations}
   }
 `;
 
