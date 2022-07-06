@@ -19,6 +19,15 @@ class dataSources extends MongoDataSource {
       { new: true },
     );
   }
+  addMyPhoto({ name, photoId }) {
+    return this.model.findOneAndUpdate(
+      { name },
+      {
+        $addToSet: { myPhotos: photoId },
+      },
+      { new: true },
+    );
+  }
 }
 
 module.exports = { dataSources };
