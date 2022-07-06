@@ -10,6 +10,15 @@ class dataSources extends MongoDataSource {
   createUser(user) {
     return this.model.create(user);
   }
+  addBookmark({ userId, photoId }) {
+    return this.model.findByIdAndUpdate(
+      userId,
+      {
+        $addToSet: { bookmarks: photoId },
+      },
+      { new: true },
+    );
+  }
 }
 
 module.exports = { dataSources };

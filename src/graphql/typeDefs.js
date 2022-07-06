@@ -9,6 +9,7 @@ const typeDefs = gql`
 
   type Query {
     ${Photo.queries}
+    ${User.queries}
   }
 
   type Mutation {
