@@ -3,15 +3,24 @@ const types = `
     _id: ID!
     email: String!
     name: String!
-    bookmark: [Photo]
+    bookmarks: [Photo]
     myPhotos: [Photo]
   }
 
-  type LoginResponse{
+  type LoginResponse {
     _id: ID!
     email: String!
     name: String!
     accessToken: String!
+  }
+
+  input InsertBookmarkForUserInput {
+    userId: ID!
+    photoId: ID!
+  }
+
+  type InsertBookmarkForUserPayload {
+    bookmarks: [ID]
   }
 `;
 

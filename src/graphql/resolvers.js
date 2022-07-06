@@ -3,6 +3,7 @@ const { User } = require("./User");
 
 const resolver = {
   Query: {
+    ...User.resolvers.queries,
     ...Photo.resolvers.queries,
   },
   Mutation: {
