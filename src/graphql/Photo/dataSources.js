@@ -10,6 +10,10 @@ class dataSources extends MongoDataSource {
       })
       .sample(1);
   }
+
+  createPhoto(photo) {
+    return this.model.create(photo);
+  }
 }
 
 module.exports = { dataSources };

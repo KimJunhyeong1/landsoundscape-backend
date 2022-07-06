@@ -9,7 +9,9 @@ const photoSchema = new Schema({
   },
   soundUrl: {
     type: String,
-    required: true,
+  },
+  creator: {
+    type: String,
   },
   tags: {
     type: [
