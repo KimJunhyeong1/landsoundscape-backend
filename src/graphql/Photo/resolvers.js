@@ -4,10 +4,16 @@ const getImaginarySoundUrl = require("../../util/runPy");
 const { fileUpload } = require("../../util/s3");
 
 const queries = {
-  photo: async (_, { id }, { dataSources: { photos } }) => {
+  randomPhoto: async (_, { id }, { dataSources: { photos } }) => {
     const result = await photos.getPhotoRandomly(id);
 
     return result[0];
+  },
+
+  photo: async (_, { id }, { dataSources: { photos } }) => {
+    const result = await photos.getPhoto(id);
+
+    return result;
   },
 };
 
