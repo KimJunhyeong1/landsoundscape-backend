@@ -12,6 +12,7 @@ const photoSchema = new Schema({
   },
   creator: {
     type: String,
+    required: true,
   },
   tags: {
     type: [
