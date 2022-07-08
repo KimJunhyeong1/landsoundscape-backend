@@ -21,6 +21,7 @@
     "graphql-upload": "^15.0.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.2",
+    "python-shell": "^3.0.1",
     "tfjs-npy-node": "^0.4.1"
   },
   "devDependencies": {

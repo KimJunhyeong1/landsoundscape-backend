@@ -1,6 +1,5 @@
 const { ApolloServer } = require("apollo-server-express");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
-const GraphQLUpload = require("graphql-upload/GraphQLUpload.js");
 const graphqlUploadExpress = require("graphql-upload/graphqlUploadExpress.js");
 const { default: mongoose } = require("mongoose");
 const { typeDefs, resolvers, dataSources, context } = require("./graphql");
