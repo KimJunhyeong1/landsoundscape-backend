@@ -2,7 +2,7 @@ const { MongoDataSource } = require("apollo-datasource-mongodb");
 
 class dataSources extends MongoDataSource {
   getUser(id) {
-    return this.findOneById(id);
+    return this.model.findById(id).populate("bookmarks").populate("myPhotos");
   }
   getUserByQuery(query) {
     return this.model.findOne(query);

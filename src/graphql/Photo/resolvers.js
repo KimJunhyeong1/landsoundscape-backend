@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-core");
 const config = require("../../config");
+const { predict } = require("../../util/mobileNet");
 const getImaginarySoundUrl = require("../../util/runPy");
 const { fileUpload } = require("../../util/s3");
 
@@ -32,11 +33,18 @@ const mutations = {
 
     const soundUrl = await getImaginarySoundUrl(url);
 
+    const tags = [];
+    const tag = await predict(url);
+
+    tags.push(`#${tag}`);
+
     const photoData = await photos.createPhoto({
       imageUrl: url,
       soundUrl,
+      tags,
       ...input,
     });
+
     await users.addMyPhoto({ name: input.creator, photoId: photoData._id });
 
     return photoData;
