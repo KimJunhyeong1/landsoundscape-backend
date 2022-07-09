@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const config = require("../../config");
 
 const queries = {
-  user: async (_, { id }, { dataSources: { users } }) => {
+  user: async (_, { id }, { dataSources: { users }, user }) => {
     return users.getUser(id);
   },
 };

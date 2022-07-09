@@ -28,4 +28,4 @@ const markerSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Photos", markerSchema);
+module.exports = mongoose.model("Marker", markerSchema);
