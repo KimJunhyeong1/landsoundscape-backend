@@ -22,10 +22,11 @@ const mutations = {
   uploadPhoto: async (
     _,
     { input, file },
-    { dataSources: { photos, users }, user },
+    { dataSources: { photos, users, markers }, user },
   ) => {
     if (!user) throw new AuthenticationError("not authenticated");
 
+    const { country, coordinates, ...photoInput } = input;
     const { url } = await fileUpload({
       file,
       bucketName: config.AWS_S3_BUCKET_NAME,
@@ -42,10 +43,20 @@ const mutations = {
       imageUrl: url,
       soundUrl,
       tags,
-      ...input,
+      country,
+      ...photoInput,
     });
 
     await users.addMyPhoto({ name: input.creator, photoId: photoData._id });
+    await markers.upsertMarker(
+      { country },
+      {
+        country,
+        coordinates,
+        photos: [photoData._id],
+        recentlyPhotoUrl: url,
+      },
+    );
 
     return photoData;
   },
