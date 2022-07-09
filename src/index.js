@@ -6,6 +6,7 @@ const { typeDefs, resolvers, dataSources, context } = require("./graphql");
 const config = require("./config");
 const express = require("express");
 const http = require("http");
+const { loadModel } = require("./util/mobileNet");
 
 const startApolloServer = async () => {
   const app = express();
@@ -38,6 +39,8 @@ const startApolloServer = async () => {
 
   await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve));
   console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+
+  await loadModel();
 };
 
 startApolloServer();
