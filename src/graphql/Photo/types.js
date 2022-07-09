@@ -15,6 +15,7 @@ const types = `
     creator: String!
     country: String!
     city: String!
+    coordinates: [Float!]!
   }
 `;
 

@@ -1,13 +1,11 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const markerSchema = new mongoose.Schema({
   country: {
     type: String,
     required: true,
-  },
-  city: {
-    type: String,
-    required: true,
+    unique: true,
   },
   coordinates: {
     type: [Number],
