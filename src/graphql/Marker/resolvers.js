@@ -9,6 +9,17 @@ const queries = {
 
     return markersData;
   },
+
+  marker: async (_, { id }, { dataSources: { markers } }) => {
+    const response = await markers.getMarker(id);
+
+    const markerData = {
+      ...response,
+      photosNum: response.photos.length,
+    };
+
+    return markerData;
+  },
 };
 
 const mutations = {};
