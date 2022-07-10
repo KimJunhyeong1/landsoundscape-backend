@@ -20,6 +20,10 @@ class dataSources extends MongoDataSource {
   getMarkers() {
     return this.model.find().lean();
   }
+
+  getMarker(id) {
+    return this.model.findById(id).populate("photos").lean();
+  }
 }
 
 module.exports = { dataSources };
