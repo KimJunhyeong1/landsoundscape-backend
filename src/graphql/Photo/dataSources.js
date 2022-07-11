@@ -15,6 +15,10 @@ class dataSources extends MongoDataSource {
       .sample(1);
   }
 
+  getPhotos(query) {
+    return this.findByFields(query);
+  }
+
   createPhoto(photo) {
     return this.model.create(photo);
   }
