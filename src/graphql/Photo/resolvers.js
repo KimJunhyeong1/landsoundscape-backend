@@ -16,6 +16,13 @@ const queries = {
 
     return result;
   },
+
+  photos: async (_, { tag }, { dataSources: { photos } }) => {
+    const searchTag = tag.includes("#") ? tag : `#${tag}`;
+    const result = await photos.getPhotos({ tags: searchTag });
+
+    return result;
+  },
 };
 
 const mutations = {
