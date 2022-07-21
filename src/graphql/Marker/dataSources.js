@@ -24,6 +24,16 @@ class dataSources extends MongoDataSource {
   getMarker(id) {
     return this.model.findById(id).populate("photos").lean();
   }
+
+  deletePhoto({ country, photoId }) {
+    return this.model.findOneAndUpdate(
+      country,
+      {
+        $pull: { photos: photoId },
+      },
+      { new: true },
+    );
+  }
 }
 
 module.exports = { dataSources };

@@ -38,6 +38,32 @@ const mutations = {
 
     return { bookmarks: userData.bookmarks };
   },
+
+  deleteBookmark: async (_, { input }, { dataSources: { users }, user }) => {
+    if (!user) throw new AuthenticationError("not authenticated");
+
+    const userData = await users.deleteBookmark(input);
+
+    return { bookmarks: userData.bookmarks };
+  },
+
+  deleteMyPhoto: async (
+    _,
+    { input },
+    { dataSources: { photos, users, markers }, user },
+  ) => {
+    if (!user) throw new AuthenticationError("not authenticated");
+
+    const { userId, photoId, country } = input;
+
+    await markers.deletePhoto({ country, photoId });
+
+    const userData = await users.deleteMyPhoto({ userId, photoId });
+
+    await photos.deletePhoto(photoId);
+
+    return userData.myPhotos;
+  },
 };
 
 const resolvers = { queries, mutations };

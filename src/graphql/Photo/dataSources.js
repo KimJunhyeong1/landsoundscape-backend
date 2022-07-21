@@ -22,6 +22,10 @@ class dataSources extends MongoDataSource {
   createPhoto(photo) {
     return this.model.create(photo);
   }
+
+  deletePhoto(id) {
+    return this.model.findByIdAndDelete(id);
+  }
 }
 
 module.exports = { dataSources };
