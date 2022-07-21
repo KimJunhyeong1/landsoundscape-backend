@@ -14,13 +14,19 @@ const types = `
     accessToken: String!
   }
 
-  type InsertBookmarkForUserPayload {
+  type UpdateBookmarkForUserPayload {
     bookmarks: [ID]
   }
 
-  input InsertBookmarkForUserInput {
+  input UpdateBookmarkForUserInput {
     userId: ID!
     photoId: ID!
+  }
+
+  input UpdateMyPhotoInput {
+    userId: ID!
+    photoId: ID!
+    country: String!
   }
 `;
 

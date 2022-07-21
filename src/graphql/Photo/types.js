@@ -11,7 +11,7 @@ const types = `
     city: String!
   }
 
-  input PhotoInput  {
+  input PhotoInput {
     creator: String!
     country: String!
     city: String!

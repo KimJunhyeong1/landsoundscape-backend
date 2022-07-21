@@ -1,7 +1,11 @@
 const mutations = `
   login(name: String!, email: String!): LoginResponse!
 
-  insertBookmarkForUser(input: InsertBookmarkForUserInput!): InsertBookmarkForUserPayload
+  insertBookmarkForUser(input: UpdateBookmarkForUserInput!): UpdateBookmarkForUserPayload
+
+  deleteBookmark(input: UpdateBookmarkForUserInput!): UpdateBookmarkForUserPayload
+
+  deleteMyPhoto(input: UpdateMyPhotoInput!): [Photo]
 `;
 
 module.exports = { mutations };
