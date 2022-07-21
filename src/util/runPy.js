@@ -22,6 +22,7 @@ const getImaginarySoundUrl = async imageUrl => {
   } = await new Promise((resolve, reject) => {
     PythonShell.run("playground.py", options, function (err, results) {
       if (err) {
+        console.log(err);
         reject({ success: false, err });
       }
 
