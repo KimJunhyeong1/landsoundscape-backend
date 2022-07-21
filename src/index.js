@@ -2,11 +2,13 @@ const { ApolloServer } = require("apollo-server-express");
 const { ApolloServerPluginDrainHttpServer } = require("apollo-server-core");
 const graphqlUploadExpress = require("graphql-upload/graphqlUploadExpress.js");
 const { default: mongoose } = require("mongoose");
-const { typeDefs, resolvers, dataSources, context } = require("./graphql");
 const config = require("./config");
 const express = require("express");
 const http = require("http");
+
+const { typeDefs, resolvers, dataSources, context } = require("./graphql");
 const { loadModel } = require("./util/mobileNet");
+const normalizePort = require("./util/normalizePort");
 
 const startApolloServer = async () => {
   const app = express();
@@ -18,6 +20,9 @@ const startApolloServer = async () => {
     dataSources,
     context,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    cors: {
+      origin: "*",
+    },
   });
 
   try {
@@ -35,10 +40,13 @@ const startApolloServer = async () => {
   server.applyMiddleware({
     app,
     path: "/",
+    cors: { origin: "*" },
   });
 
-  await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve));
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+  const port = normalizePort(process.env.PORT || "8000");
+
+  await new Promise(resolve => httpServer.listen({ port }, resolve));
+  console.log(`🚀 Server ready at http://localhost:8000${server.graphqlPath}`);
 
   await loadModel();
 };
