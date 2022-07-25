@@ -223,6 +223,16 @@ PYTHON_PATH=<YOUR_PYTHON_INSTALL_PATH>
 #### Depoly: Netlify, AWS Elastic Beanstalk
 #### 패키지 관리: Yarn
 
+## 🔗  **Github Repositories**
+
+### Frontend
+
+[GitHub - KimJunhyeong1/landsoundscape-frontend](https://github.com/KimJunhyeong1/landsoundscape-frontend)
+
+### Backend
+
+[GitHub - KimJunhyeong1/landsoundscape-backend](https://github.com/KimJunhyeong1/landsoundscape-backend)
+
 
 ## 🚀 Outro
 
