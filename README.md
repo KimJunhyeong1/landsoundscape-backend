@@ -43,10 +43,8 @@ LandSoundScape는 사용자가 사진을 업로드 했을 때 딥러닝 모델�
  
 ## 🎖 Keyword
 
-<details>
-<summary><h3>TensorFlow.js</h3></summary>
-<div markdown="1">
-  
+### `TensorFlow.js`
+
 **핵심적인 기능 중 하나인 이미지를 분석하여 사운드를 예측하고, 태그를 예측하는 기능이 있습니다**.
 
 특히, 이미지를 분석하여 사운드를 예측하는 ‘SoundNet’의 경우 TensorFlow.js에서 기본적으로 지원하지 않는 모델이였고 결국 Kears 모델을 Json, Binary파일로 변환하여 모델을 사용하여야 했습니다.
@@ -61,11 +59,7 @@ NodeJS 내부에서 자식 프로세스를 생성하고 독립된 환경에서 �
 
 이 과정은 프로젝트를 진행하면서 가장 시간을 많이 투자하고, 끊임없이 고민한 부분입니다. 이 고민을 통해 프론트 단에서 이미지에 더 적합한 사운드를 제공해 줄 수 있었습니다.
   
-</div>
-</details>
-<details>
-<summary><h3>GraphQL</h3></summary>
-<div markdown="1">
+### `GraphQL`
   
 **이번 프로젝트에서는 기존의 ‘REST API’ 대신 GraphQL을 도입하였습니다.**
 
@@ -89,12 +83,8 @@ GraphQL을 큰 단점은 파일업로드 였습니다. 하지만, ‘apollo-serv
 
 ‘apollo-server-express’를 사용하면 기존의 Express(REST) 환경에서 특정 엔드포인트에 GraphQL을 사용할 수 있습니다. 이렇게 두 가지를 적절하게 섞어 팀, 개인, 진행하고 있는 프로젝트의 특성에 맞게 사용는것이 올바른 방향이지 않을까 생각하게 되었습니다.
   
-</div>
-</details>
-<details>
-<summary><h3>PWA, 반응형 디자인</h3></summary>
-<div markdown="1">
-  
+### `PWA, 반응형 디자인`
+
 이번 프로젝트에서 **PWA(Progressive Web App)** 를 적용하여 **모바일 환경에서 웹이지만 네이티브 앱처럼** 사용할 수 있도록 하였습니다. **또한 다양한 플랫폼에서 서비스를 사용할 수 있도록 반응형 디자인을 도입하였습니다.**
 
 PWA적용을 위하여 핵심인 ‘Manifest’ 파일을 작성하고 'ServiceWoker’를 사용하였습니다.
@@ -113,9 +103,6 @@ PWA 정책에서 강조하는 부분을 최대한 맞추기 위해 ‘Lighthouse
 
 마지막으로 사진을 보여주는 화면에서는 모바일과 데스크탑의 화면 크기를 고려하여 각 화면에 맞는 레이아웃 배치를 적용하였습니다.
   
-</div>
-</details>
-    
 
 ## 💎 **Foundation**
 
