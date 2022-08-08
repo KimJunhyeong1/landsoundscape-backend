@@ -105,9 +105,9 @@ PWA 정책에서 강조하는 부분을 최대한 맞추기 위해 ‘Lighthouse
   
 
 ## 💎 **Foundation**
-
-- [객체지향 5원칙 (SOLID)](https://living-rosehip-25b.notion.site/5-SOLID-aa5c25c29bc144c8953fb7e57e0d6fe9)
-- [React Design Pattern](https://living-rosehip-25b.notion.site/React-Design-Pattern-b68804fdbaac433186acaa8f88dc42cc)
+#### 'landSoundScape' 프로젝트에서 적용한 프로그래밍 개념을 글로 정리하였습니다.
+- [React 객체지향 5원칙 (SOLID)](https://velog.io/@khm11904/React-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5-5%EC%9B%90%EC%B9%99-SOLID)
+- [React Design Pattern](https://velog.io/@khm11904/React-Design-Pattern)
 - [함수형 프로그래밍](https://living-rosehip-25b.notion.site/54d730b2b73c49a1809cc36c2802f7ef)
 
 ## 🗓 Schedule
